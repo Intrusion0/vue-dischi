@@ -1,9 +1,9 @@
 <template>
   <div class="card-track">
       <img :src="details.poster" :alt="details.title">
-      <h2>{{details.title.toUpperCase()}}</h2>
-      <span>{{details.author}}</span>
-      <span>{{details.year}}</span>
+      <h2>{{ details.title.toUpperCase() }}</h2>
+      <span>{{ details.author }}</span>
+      <span>{{ details.year }}</span>
   </div>
 </template>
 
@@ -47,7 +47,7 @@ $text-card-color: #808080;
         font-size: 18px;
     }
 
-    span:last-child {
+    &:last-child {
         margin-bottom: 15px;
     }
 }
