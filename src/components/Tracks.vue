@@ -1,6 +1,9 @@
 <template>
   <div class="container-tracks">
-      <CardTrack v-for="card, i in cards" :key="i"
+      <!-- Componente Loader -->
+      <Loader v-if="contCards == false"/>
+      <!-- Componente CardTrack -->
+      <CardTrack v-else v-for="card, i in cards" :key="i"
       :details="card"
       />
   </div>
@@ -9,16 +12,19 @@
 <script>
 import axios from 'axios'
 import CardTrack from './CardTrack.vue'
+import Loader from './Loader.vue'
 
 export default {
   name: 'Traks',
   components: {
-      CardTrack
+      CardTrack,
+      Loader
   },
   data() {
       return {
           apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
-          cards: []
+          cards: [],
+          contCards: false
       }
   },
   created() {
@@ -28,7 +34,11 @@ export default {
       apiCardMusic() {
           axios .get(this.apiUrl)
           .then ((result) => {
+              this.contCards = true;
               this.cards = result.data.response;
+          })
+          .catch ((error) => {
+              console.log('Attenzione!! ' + error);
           })
       }
   }
