@@ -37,7 +37,8 @@ $text-card-color: #808080;
     h2 {
         color: $title-card-color;
         text-align: center;
-        margin: 20px 0 25px;
+        margin: 20px 0;
+        padding: 0 20px;
     }
 
     span {
