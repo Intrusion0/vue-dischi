@@ -32,8 +32,8 @@ export default {
   },
   methods: {
       apiCardMusic() {
-          axios .get(this.apiUrl)
-          .then ((result) => {
+          axios.get(this.apiUrl)
+          .then((result) => {
               this.contCards = true;
               this.cards = result.data.response;
           })
