@@ -42,7 +42,7 @@ export default {
 main {
   width: 100%;
   background-color: #1e2d3b;
-  padding: 80px 0;
+  padding: 15px 0 80px 0;
 }
 
 </style>

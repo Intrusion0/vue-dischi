@@ -45,10 +45,10 @@ $text-card-color: #808080;
         color: $text-card-color;
         font-weight: 500;
         font-size: 18px;
-    }
 
-    &:last-child {
+        &:last-child {
         margin-bottom: 15px;
+        }
     }
 }
 </style>
