@@ -23,7 +23,7 @@ export default {
     display: flex;
     justify-content: center;
     width: 100%;
-    padding-bottom: 90px;
+    padding-bottom: 15px;
 
     h3 {
         color: white;
