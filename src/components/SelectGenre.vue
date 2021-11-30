@@ -33,14 +33,22 @@ export default {
         background: #18d860;
         min-height: 30px;
         min-width: 150px;
-        color: white;
-        text-shadow: 0 0 4px black;
-        font-weight: 600;
+        color: #000000;
+        text-shadow: 0 0 4px #ffffff;
+        font-weight: 700;
+        font-size: 15px;
 
-        option {
-            background: #2e3a46;
+        option:not([disabled]) {
             color: #fff;
-            cursor: pointer;
+            font-weight: 600;
+
+            &:nth-child(even) {
+              background-color: #2e3a46;
+            }
+
+            &:nth-child(odd) {
+              background-color: #1e2d3b;
+            }
         }
     }
 }
