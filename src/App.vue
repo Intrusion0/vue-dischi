@@ -1,10 +1,18 @@
 <template>
   <div id="app">
     <!-- Componente Header -->
-    <Header/>
+    <Header
+    :element="cards"
+    @genre="genreHandler"
+    @author="authorsHandler"
+    />
     <main>
       <!-- Componente Tracks -->
-      <Tracks/>
+      <Tracks
+      @tracks="tracksHandler"
+      :selectedGenreOption="this.selectedGenreOption"
+      :selectedAuthorOption="this.selectedAuthorOption"
+      />
     </main>
   </div>
 </template>
@@ -18,6 +26,24 @@ export default {
   components: {
     Header,
     Tracks
+  },
+  data() {
+    return {
+      cards: [],
+      selectedGenreOption: 'All',
+      selectedAuthorOption: 'All'
+    }
+  },
+  methods: {
+    tracksHandler(tracks) {
+      this.cards = tracks;
+    },
+    genreHandler(genre) {
+      this.selectedGenreOption = genre;
+    },
+    authorsHandler(author) {
+      this.selectedAuthorOption = author;
+    }
   }
 }
 </script>
@@ -42,7 +68,7 @@ export default {
 main {
   width: 100%;
   background-color: #1e2d3b;
-  padding: 15px 0 80px 0;
+  padding: 75px 0 80px 0;
 }
 
 </style>

@@ -1,9 +1,5 @@
 <template>
   <div class="container-tracks">
-    <!-- Componente Select Genre -->
-    <SelectGenre @changeGenre="selectGenreOption" />
-    <!-- Componente SelectAuthor -- BONUS -- -->
-    <SelectAuthor :details="cards" @changeAuthor="selectAuthorOption" />
     <!-- Componente Loader -->
     <Loader v-if="contCards == false" />
     <!-- Componente CardTrack -->
@@ -20,25 +16,23 @@
 import axios from "axios";
 import CardTrack from "./CardTrack.vue";
 import Loader from "./Loader.vue";
-import SelectGenre from "./SelectGenre.vue";
-import SelectAuthor from "./SelectAuthor.vue";
 
 export default {
   name: "Traks",
   components: {
     CardTrack,
-    Loader,
-    SelectGenre,
-    SelectAuthor,
+    Loader
   },
   data() {
     return {
       apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       cards: [],
-      contCards: false,
-      selectedGenreOption: "All",
-      selectedAuthorOption: "All",
-    };
+      contCards: false
+    }
+  },
+  props: {
+    selectedGenreOption: String,
+    selectedAuthorOption: String
   },
   computed: {
     filteredCards() {
@@ -67,18 +61,13 @@ export default {
         .then((result) => {
           this.contCards = true;
           this.cards = result.data.response;
+          this.$emit('tracks', this.filteredCards);
         })
         .catch((error) => {
           console.log("Attenzione!! " + error);
         });
-    },
-    selectGenreOption(event) {
-      this.selectedGenreOption = event.target.value;
-    },
-    selectAuthorOption(event) {
-      this.selectedAuthorOption = event.target.value;
-    },
-  },
+    }
+  }
 };
 </script>
 

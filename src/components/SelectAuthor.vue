@@ -25,8 +25,8 @@ export default {
 .container-select-author {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    padding-bottom: 90px;
 
     h3 {
         color: white;
