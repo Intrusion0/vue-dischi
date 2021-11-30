@@ -1,8 +1,8 @@
 <template>
   <div class="container-select-tracks">
-      <h3>Seleziona il genere:</h3>
         <select @change="$emit('changeGenre', $event)">
-            <option selected>All</option>
+          <option selected disabled>Seleziona genere</option>
+            <option>All</option>
             <option value="Rock">Rock</option>
             <option value="Pop">Pop</option>
             <option value="Jazz">Jazz</option>
@@ -21,7 +21,7 @@ export default {
 
 .container-select-tracks {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     width: 100%;
 
     h3 {
@@ -29,9 +29,19 @@ export default {
         margin-right: 10px;
     }
 
-    select option {
-        background: #2e3a46;
-        color: #fff;
+    select {  
+        background: #18d860;
+        min-height: 30px;
+        min-width: 150px;
+        color: white;
+        text-shadow: 0 0 4px black;
+        font-weight: 600;
+
+        option {
+            background: #2e3a46;
+            color: #fff;
+            cursor: pointer;
+        }
     }
 }
 
